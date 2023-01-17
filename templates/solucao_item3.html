@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.css') }}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }} " rel="stylesheet" />
+         <title>DSIAC - Consultoria e Soluções Digitais </title>
+    </head>
+    <body class="d-flex flex-column" id="page-top">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html">DSIAC DADOS-Consultoria e Soluções Digitais </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('sobre') }}">Sobre</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownSoluções" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Soluções</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownSoluções">
+                                    <li><a class="dropdown-item" href="{{ url_for('solucao_item1') }}">Consultoria em Analytics e ML</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('solucao_item2') }}">Integração, Analise e Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('solucao_item3') }}">Ciência de Dados e ML</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('solucao_item4') }}">Modelos Preditivos </a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownSegmentos" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Segmentos</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownSegmentos">
+                                    <li><a class="dropdown-item" href="{{ url_for('segmentos_item1') }}">Varejo</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('segmentos_item2') }}">Educação</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('segmentos_item3') }}">Saúde</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('segmentos_item4') }}">Telecom</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('segmentos_item5') }}">Governo</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('tecnologias') }}">Tecnologias</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('contato') }}">Contato</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header-->
+            <header class="py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-xxl-6">
+                            <div class="text-center my-5">
+                                <h1 class="fw-bolder mb-3">Ciência de Dados e Machine Learning.</h1>
+                                <p class="lead fw-normal text-muted mb-4">Essa combinação nos permite fornecer insights preditivos
+                                    de ponta a ponta, de maneira a inovar e resolver problemas complexos de negócios nas empresas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- About section one-->
+            <section class="py-5 bg-light" id="scroll-target">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='img/datasc.jpg') }}" alt="..." /></div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder">Ciências de dados nas organizações.</h2>
+                            <p class="lead fw-normal text-muted mb-0">A ciência de dados é um elemento essencial no molho para entender e revelar detalhes sobre hábitos,
+                                características demográficas, preferências, aspirações e muito mais.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About section two-->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{ url_for('static', filename='img/ml.png') }}" alt="..." /></div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder">Machine Learning</h2>
+                            <p class="lead fw-normal text-muted mb-0">A capacidade de aprender a reconhecer e reproduzir padrões de forma autônoma a partir da análise de um volume considerado
+                                de dados torna a aprendizagem de máquina um recurso tecnológico ideal para ajudar as organizações a ficarem à frente da curva no mundo dinâmico de hoje.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; dsiacdata.com.br 2023</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacidade</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Termos</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contato</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
