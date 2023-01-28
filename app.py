@@ -15,8 +15,8 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'sc.oberdan@gmail.com'
-app.config['MAIL_PASSWORD'] = '922$Lenha'
+app.config['MAIL_USERNAME'] = 'contato@dsiacdata'
+app.config['MAIL_PASSWORD'] = 'xxxxxx'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
