@@ -1,7 +1,25 @@
-from flask import Flask, render_template
+import os
+from flask import Flask, render_template, request
+from forms import ContactForm
+from flask_mail import Mail, Message
+
+
 
 app = Flask(__name__)
 
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
+# Bootstrap(app)
+# csrf.init_app(app)
+
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'sc.oberdan@gmail.com'
+app.config['MAIL_PASSWORD'] = '922$Lenha'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
 
 @app.route('/')
 def home():
@@ -52,12 +70,25 @@ def segmentos_item5():  # put application's code here
 def tecnologias():  # put application's code here
     return render_template('tecnologias.html')
 
-@app.route('/contato/')
-def contato():
-    return render_template('contato.html')
+@app.route('/contatos', methods=["GET", "POST"])
+def get_contato():
+    cform = ContactForm()
+    if request.method == "POST":
+        name = request.form["Nome"]
+        email = request.form["Email"]
+        subject = request.form["Assunto"]
+        message = request.form["Mensagem"]
 
+    return render_template('contato.html', form=cform)
 
+def send_message(message1):
+
+    msg = Message(subject=(f"{message1.get('Email')} quero contactar com vc desde app"),
+                  sender=message1.get('Email'),
+                  recipients=['sc.oberdan@gmail.com'], body=message1.get('Mensagem')
+                  )
+    mail.send(msg)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

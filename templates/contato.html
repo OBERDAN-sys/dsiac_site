@@ -45,7 +45,7 @@
                                 </ul>
                             </li>
                              <li class="nav-item"><a class="nav-link" href="{{ url_for('tecnologias') }}">Tecnologias</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('contato') }}">Contato</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('get_contato') }}">Contato</a></li>
                             </li>
                         </ul>
                     </div>
@@ -53,29 +53,48 @@
             </nav>
             <!-- Page content-->
             <section class="py-5">
-                <div class="container px-5">
-                    <!-- Contact form-->
-                    <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
-                        <div class="text-center mb-5">
-                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                            <h1 class="fw-bolder">Entre em contato conosco</h1>
-                            <p class="lead fw-normal text-muted mb-0">Adoraríamos ouvi-lo</p>
-                        </div>
-                        <div class="subheading mb-5">
-                            Rua projeta 595, n° 12, sala B, Ponta d´areia · São Luis-MA, CEP 65077-520 · (55) 98 98802-1320 ·
-                            <a href="mailto:name@email.com">contato@dsiacdata.com.br</a>
-                        </div>
-                        <p class="lead mb-5">Temos experiência no campo da Ciência de Dados e Inteligência Artificial para fornecer soluções digitais de alto nível. Contamos com uma equipe de cientistas qualificados com ações feitas e publicadas em revistas de nível nacional e internacional que ajudam a promover uma proposta de valor para os negócios.
-.</p>
-                        <div class="social-icons">
-                            <a class="social-icon" href="https://www.linkedin.com/company/84852218/admin/"><i class="fab fa-linkedin-in fa-4x">fa-4x</i></a>
-                            <a class="social-icon" href="https://github.com/OBERDAN-sys/DSIACDATA-sys"><i class="fab fa-github fa-4x">fa-4x</i></a>
+                {% block content %}
+                <div class="contato">
+                    <h3>Contate-nos</h3>
+                    <form action="{{ url_for('get_contato') }}" method="POST">
+                        {{ form.csrf_token }}
 
+                        <div>
+                            <!-- name forms -->
+                            <p>
+                                {{ form.name.label }} <br>
+                                {{ form.name(placeholder='Seu nome') }}
+                            </p>
+                            <!-- email forms -->
+                            <p>
+                                {{ form.email.label }} <br>
+                                {{ form.email(placeholder='Seu e-mail ...') }}
+                            </p>
+                            <!-- Subject of your request -->
+                            <p>
+                                {{ form.subject.label }}<br>
+                                {{form.subject(placeholder='Assunto que deseja tratar ...')}}
+                            </p>
+                            <!-- Content of your request -->
+                            <p>
+                                {{ form.message.label }}<br>
+                                {{ form.message(placeholder='Escrever sua solicitação ...') }}
+                            </p>
+                            <!-- Submit button -->
+                            <p>
+                                {{ form.submit(class='btn btn-sucess') }}
+                            </p>
                         </div>
-
-                    </div>
-
+                    </form>
                 </div>
+
+                {% endblock %}
+
+
+                <!-- add the right css file -->
+                {% block styles %}
+                <link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+                {% endblock %}
             </section>
         </main>
         <!-- Footer-->
@@ -88,7 +107,7 @@
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="#!">Termos</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="{{ url_for('contato') }}">Contato</a>
+                        <a class="link-light small" href="{{ url_for('get_contato') }}">Contato</a>
                     </div>
                 </div>
             </div>
